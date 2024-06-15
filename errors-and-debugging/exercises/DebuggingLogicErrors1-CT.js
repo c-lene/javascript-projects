@@ -1,0 +1,33 @@
+// Run this sample code as-is and examine the output. 
+// Should the shuttle have launched?                        NO, the shuttle SHOULD have NOT lauched.
+// Did it?                                                  YES, the Shuttle launched even though 'launchReady' was initially set to FALSE.
+
+// Do not worry about fixing the code yet, we will do that in the next series of exercises.
+
+let launchReady = false;
+let fuelLevel = 17000;
+let crewStatus = true;
+let computerStatus = 'green';
+
+if (fuelLevel >= 20000) {
+   console.log('Fuel level cleared.');
+   launchReady = true;
+} else {
+   console.log('WARNING: Insufficient fuel!');
+   launchReady = false;                                        // Based on this code block, 'launchReady' should remain FALSE due to 'fuelLevel' is < 20000
+}
+
+if (crewStatus && computerStatus === 'green'){
+   console.log('Crew & computer cleared.');
+   launchReady = true;                                         // Due to this code block, it had changed launchReady to TRUE
+} else {
+   console.log('WARNING: Crew or computer not ready!');
+   launchReady = false;
+}
+
+if (launchReady) {
+   console.log('10, 9, 8, 7, 6, 5, 4, 3, 2, 1...');
+   console.log('Liftoff!');
+} else {
+   console.log('Launch scrubbed.');
+}
