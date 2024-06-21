@@ -28,3 +28,15 @@ console.log(`The Symbol of 'element26' is ${arrayTable[2][1]}.`);
 
 
 //5) 'table' is an example of a 2-dimensional array. The first “level” contains the element arrays, and the second level holds the name/symbol/mass values. Experiment! Create a 3-dimensional array and print out one entry from each level in the array.
+let arrayTable3D = [];
+arrayTable3D.push(arrayTable);
+
+console.log("This is the printout of a 3D Array");
+console.log(arrayTable3D);
+
+console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+//console.log(arrayTable3D[0]);                                                         // This prints out the 3D Array as a whole                         
+console.log(`The Name of 'element1' is ${arrayTable3D[0][0][0]}.`);                     // This prints out "hydrogen"
+console.log(`The Symbol of 'element2' is ${arrayTable3D[0][1][1]}.`);                     // This prints out "He"
+console.log(`The Mass of 'element26' is ${arrayTable3D[0][2][2]}.`);                     // This prints out "55.85"
