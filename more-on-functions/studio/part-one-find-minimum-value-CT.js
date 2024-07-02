@@ -3,53 +3,27 @@
 
 function sortForMinimumNum (numArray) {
     
-    //let minNum = numArray[0];
-    let minNum = [];
+    let minNum = numArray[0];
+    
     
     
     
     for (let i = 0; i < numArray.length; i++) {
         
         /*
-        if (numArray[i] < minNum) {                                             //This code works
+        if (numArray[i] < minNum) {                                             //This code works - Code that the book uses
             minNum = numArray[i];
         }*/
         
         
         for (let j = i + 1; j < numArray.length; j++) {
-            
-            /*if (numArray[i] < 0 && numArray[j] < numArray[i]) {
-                minNum = numArray[j];
-                console.log(minNum);
-
-            } else */
-            
+                      
             if (numArray[j] < numArray[i] && numArray[j] < minNum) {
                 minNum = numArray[j];
-                    
-                //sortedNumArray.push(numArray[i]);
-
-            } /*else if (numArray[j] < numArray[i]) {
-                minNum = numArray[j];
-            }*/
-            
-            
-             /*else {
-                minNum = numArray[i]
-                //sortedNumArray.push(numArray[j]);
-            }*/
-            console.log(`Round ${[i]} - results in ${minNum}`)
+            } 
         }
-
-        /*if (numArray[i] < minNum[0]) {
-            minNum = numArray[i];
-        }*/
-        
-       //console.log(`Round ${[i]} - results in ${minNum}`);
     }
-    
     return minNum
-    //return sortedNumArray;
 }
 
 
