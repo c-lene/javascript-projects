@@ -47,7 +47,7 @@ let stealFuelLevel = function(shuttleFuelLevel) {
     }
 };
 
-console.log(`Final fuel check: ${stealFuelLevel(fuelLevel)}`);
+//console.log(`Final fuel check: ${stealFuelLevel(fuelLevel)}`);
 
 
 
@@ -66,9 +66,28 @@ console.log(`Final fuel check: ${stealFuelLevel(fuelLevel)}`);
 
 //d). Don’t get hasty, matey! Remember to test your function.
 
-let confirmHoldStatus = function(newCargoHold) {
+let stolenCargoHold = [];
+
+let confirmHoldStatus = function(shuttleCargoHold) {
+  stolenCargoHold.push(shuttleCargoHold[4],shuttleCargoHold[6]);
+  shuttleCargoHold.splice(shuttleCargoHold.indexOf('gold'), 1, "space blankets");
+  shuttleCargoHold.splice(shuttleCargoHold.indexOf('AE-35 unit'), 1, "spam");
+  //console.log(`cargo hold have ${shuttleCargoHold.length} items.`);
   
+  return stolenCargoHold, shuttleCargoHold;
 };
+
+
+console.log("~~~~~~~~~~~~~~~~~~~~~~~");
+console.log(`Final fuel check: ${stealFuelLevel(fuelLevel)}`);
+console.log(`Final Hold Status: ${holdStatus(confirmHoldStatus(cargoHold))}`);
+
+console.log("~~~~~~~~~~~~~~~~~~~~~~~");
+console.log("For Work Check Purposes - Checking Adjusted Arrays");
+
+console.log(`Stolen Items: ${stolenCargoHold}`);
+console.log(`New Cargo Hold Items: ${cargoHold}`);
+
 
 
 
