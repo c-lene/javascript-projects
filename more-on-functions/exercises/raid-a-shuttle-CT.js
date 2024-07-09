@@ -35,13 +35,19 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //d). Decide where to best place your function call to gather our new fuel.
 
+let stolenFuel = [];
+
 let stealFuelLevel = function(shuttleFuelLevel) {
-    if (checkFuel(shuttleFuelLevel) === 'green') {
+
+  if (checkFuel(shuttleFuelLevel) === 'green') {
+      //stolenFuel = shuttleFuelLevel - 99999;
       shuttleFuelLevel = shuttleFuelLevel - 99999;
+      stolenFuel.push(shuttleFuelLevel);
       return 'green';
 
     } else if (checkFuel(shuttleFuelLevel) === 'yellow') {
       shuttleFuelLevel = shuttleFuelLevel - 49999;
+      stolenFuel.push(shuttleFuelLevel);
     } else {
       return 'yellow';
     }
@@ -87,6 +93,7 @@ console.log("For Work Check Purposes - Checking Adjusted Arrays");
 
 console.log(`Stolen Items: ${stolenCargoHold}`);
 console.log(`New Cargo Hold Items: ${cargoHold}`);
+console.log("~~~~~~~~~~~~~~~~~~~~~~~");
 
 
 
@@ -96,8 +103,18 @@ console.log(`New Cargo Hold Items: ${cargoHold}`);
  */
  
 //a). Define a function called irs that can take fuelLevel and cargoHold as arguments.
-	
+// CHECK Solution when have wifi!!!!!
+
+
 //b). Call your anonymous fuel and cargo functions from within irs.
 
 //c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
 
+
+let irs = function(fuelLevel, cargoHold) {
+  console.log(`Fuel level: ${fuelLevel}`);
+  console.log(`Cargo Hold Items: ${cargoHold}`);
+  return `Raided ${stolenFuel} kg of fuel from the tanks, and stolen ${stolenCargoHold[0]} and ${stolenCargoHold[1]} from the cargo hold.`;
+};
+
+console.log(irs(fuelLevel, cargoHold));
