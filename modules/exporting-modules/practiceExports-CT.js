@@ -15,4 +15,15 @@ function randomArrayElement(arr){
     return arr[index];
 }
 
-module.exports = isPalindrome;                                      // Added to make 'isPalindrome' function available to other files
+/*
+module.exports = isPalindrome;                                      // Added to EXPORT a single function 'isPalindrome' available to other files
+*/
+
+
+// EXPORTS Multiple functions
+module.exports = {
+    isPalindrome: isPalindrome,
+    evenOrOdd: evenOrOdd,
+    randomArrayElement: randomArrayElement
+}
+
