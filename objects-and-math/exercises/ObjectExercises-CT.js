@@ -122,13 +122,37 @@ let crew = [superChimpOne, salamander, superChimpTwo, beagle, tardigrade];
 console.log(crew);
 
 
-// Print out the relevant information about each animal.
+// Print out the relevant information about each animal. --------------------------------------
+
+// Function that prints out Relevant Information
 function crewReports(animal) {
    console.log(`${animal.name} is a ${animal.species}. They are ${animal.age} years old and ${animal.mass} kilograms. Their ID is ${animal.astronautID}.`);
 }
 
-
+// Using Mapping to print out each animal relevant information
 let mappedArrayCrew = crew.map(crewReports);
 console.log(mappedArrayCrew);
 
+
+
 // Start an animal race!
+function fitnessTest(animal) {
+   let results = [];
+   let numSteps;
+   let numTurns;
+   
+   for (let i = 0; i < crew.length; i++) {
+      numSteps = 0;
+      numTurns = 0;
+
+      while (numSteps < 20) {
+         numSteps += animal[i].move();
+         numTurns++;
+      }
+      //results.push(`${animal[i].name} took ${numTurns} turns to take 20 steps. With ${animal[i].move()} step for EACH turn & a TOTAL of ${numSteps} steps.`);
+      results.push(`${animal[i].name} took ${numTurns} turns to take 20 steps.`);
+   }
+   return results;
+}
+
+console.log(fitnessTest(crew));
