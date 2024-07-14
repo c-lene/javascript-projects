@@ -98,7 +98,9 @@ console.log(randomIDNumArray);
 // PART 2 - Build a crew Array
 let newCrewArray = buildCrewArray(randomIDNumArray,animals);
 
+// Reference Check the new Random Array to see if code works!
 console.log(newCrewArray);
 
+// Using Template Literals to Print out names of Selected Animals
 console.log(`${newCrewArray[0].name}, ${newCrewArray[1].name}, and ${newCrewArray[2].name} are going to space!`);
 
