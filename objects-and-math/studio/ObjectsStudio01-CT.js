@@ -6,6 +6,26 @@ function selectRandomEntry(idNumArray) {
 
 
 // Code your buildCrewArray function here:
+function buildCrewArray(randIDArray, animalArray) {
+    let crewArray = [];
+
+    // Using For Loop to search each element in 'randIDArray'
+    for (let i = 0; i < randIDArray.length; i++) {
+        
+        // Using Nested For Loop to search through each element in 'animalArray'
+        for (let j = 0; j < animalArray.length; j++) {
+            
+            if (animalArray[j].astronautID === randIDArray[i]) {
+                crewArray.push(animalArray[j]);
+                
+            }
+                
+        }
+        
+    }
+    return crewArray;   
+}
+
 
 
 let idNumbers = [291, 414, 503, 599, 796, 890];
@@ -58,13 +78,14 @@ let animals = [candidateA,candidateB,candidateC,candidateD,candidateE,candidateF
 
 // Code your template literal and console.log statements: ----------------------------------------------
 
-// Randomly Select ID Numbers 
+// PART 1 - Randomly Select ID Numbers
 let randomIDNumArray = [];
 let selectNumID = 3;
 
 while (randomIDNumArray.length < selectNumID) {
     let newRandomIDNum = selectRandomEntry(idNumbers);
 
+    // Checks to avoid Repeated Numbers ---- If NO Repreated Numbers then result will be pushed to new Array
     let checkRepeatedNum = randomIDNumArray.includes(idNumbers[newRandomIDNum]);
     if (checkRepeatedNum === false) {
         randomIDNumArray.push(idNumbers[newRandomIDNum]);
@@ -73,4 +94,11 @@ while (randomIDNumArray.length < selectNumID) {
 
 console.log(randomIDNumArray);
 
+
+// PART 2 - Build a crew Array
+let newCrewArray = buildCrewArray(randomIDNumArray,animals);
+
+console.log(newCrewArray);
+
+console.log(`${newCrewArray[0].name}, ${newCrewArray[1].name}, and ${newCrewArray[2].name} are going to space!`);
 
