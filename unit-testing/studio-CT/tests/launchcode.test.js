@@ -47,7 +47,7 @@ describe("Testing launchcode", function(){
   });
 
   test("checking 'launchOutput' - when passed a number that is ONLY divisible by 2 AND 5 and returns 'Launch Rocks!'", function() {   
-    expect(launchcode.launchOutput(10)).toBe('Launch Rocks!'); 
+    expect(launchcode.launchOutput(10)).toBe('Launch Rocks! (CRASH!!!!)'); 
   });
 
   test("checking 'launchOutput' - when passed a number that is ONLY divisible by 2, 3, AND 5 and returns 'LaunchCode Rocks!'", function() {   
@@ -57,8 +57,5 @@ describe("Testing launchcode", function(){
   test("checking 'launchOutput' - when passed a number that is NOT divisible by 2, 3, AND 5 and returns 'Rutabagas! That doesn't work.'", function() {   
     expect(launchcode.launchOutput(11)).toBe("Rutabagas! That doesn't work."); 
   });
-
-
-
 
 });
