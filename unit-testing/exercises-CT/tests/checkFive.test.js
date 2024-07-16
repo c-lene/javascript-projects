@@ -15,5 +15,6 @@ describe("checkFive", function(){
     test("checks if produces correct output when passed a number EQUAL to 5.", function(){
         output = checkFive(5);
         expect(output).toEqual(`5 is equal to 5.`);
+        
     });
 });

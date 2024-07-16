@@ -8,6 +8,7 @@ function checkFive(num){
      result = num + " is greater than 5.";
    }
    return result;
+   
  }
 
  module.exports = checkFive;
