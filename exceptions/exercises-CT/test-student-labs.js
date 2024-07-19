@@ -1,13 +1,20 @@
 function gradeLabs(labs) {
   for (let i=0; i < labs.length; i++) {
     let lab = labs[i];
-    let result = lab.runLab(3);
+    //let result = lab.runLab(3);
     
+
     // Added a Try/Catch block to catch an Exception if the 'runLab' property is not defined.
     try {
-      //
-    } catch(err) {
-      //
+      let result = lab.runLab(3);
+    } catch(error) {
+      console.log("A TypeError has been caught. Due to 'runLab' property is not defined.")
+      
+      // Prints out the actual Error message
+      //console.log(error);                                                                       
+      
+      // If the Exception is thrown, 'result' should be set to "Error thrown"
+      let result = "Error thrown";
     }
 
 
