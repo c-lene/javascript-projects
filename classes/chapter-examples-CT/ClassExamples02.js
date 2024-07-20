@@ -3,8 +3,8 @@
 // Next, set default values for 1 or more of the parameters in constructor.
 
 class Astronaut {
-   //constructor(name, age, mass){
-   constructor(name, age, mass = 54){                 // Setting Default value for 'mass'
+   constructor(name, age, mass){
+   //constructor(name, age, mass = 54){                 // Setting Default value for 'mass'
      this.name = name;
      this.age = age;
      this.mass = mass;
