@@ -5,18 +5,44 @@ let protoArray4 = "Comma-spaces, might, require, typing, caution";
 
 strings = [protoArray1, protoArray2, protoArray3, protoArray4];
 
-
+console.log(strings);
 
 //2) 
 function reverseCommas() {
 	//TODO: 1. create and instantiate your variables.
 	let check 							// use If/else statement to check each variables to have commas or not
 	let output
+
+	let protoArray1Check;
+	let protoArray2Check;
+	let protoArray3Check;
+	let protoArray4Check;
+
 	//TODO: 2. write the code required for this step
-	if (check) {
-		let protoArray1Check = protoArray1.includes(",");
-		console.log()
+	
+	if (protoArray1.includes(",")) {
+		protoArray1Check = protoArray1.split(",").reverse().join(",");
+		console.log("");
+	}	
+	
+	if (protoArray2.includes(".")) {
+		protoArray2Check = protoArray2.split(",").reverse().join(",");
+		console.log("");
+	} 
+
+	if (protoArray3.includes(",")) {
+		protoArray3Check = protoArray3.split(",").reverse().join(",");
+		console.log("");
 	}
+
+	if (protoArray4.includes(",")) {
+		protoArray4Check = protoArray4.split(",").reverse().join(",");
+		console.log("");
+	}
+
+	output = protoArray1Check + protoArray2Check + protoArray3Check + protoArray4Check;
+
+
 	//NOTE: For the code to run properly, you must return your output.  this needs to be the final line of code within the function's { }.
 	return output;
 }

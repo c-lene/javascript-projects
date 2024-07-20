@@ -38,17 +38,23 @@ function sortMinValue(value) {
 
 /* BONUS MISSION: Refactor your sorting function to use recursion below: */
 
-/*
-function sortMinValueRecursion(value) {
-  if (value.length < 0) {
-    //solve last small step
 
+function sortMinValueRecursion(value) {
+  if (value.length <= 1) {
+    //solve last small step
+    value.splice(0,1);
+    return sortedArray.push(findMinValue(value[0]));
     //end Recursion
+
   } else {
+    sortedArray.push(findMinValue(value));
+    value.splice(value.indexOf(findMinValue(value)), 1);
+
     //call function again
+    return sortMinValueRecursion(value);
   }
 }
-*/
+
 
 
 
@@ -67,3 +73,5 @@ let nums3 = [200, 5, 4, 10, 8, 5, -3.3, 4.4, 0];
 
 console.log(nums3);
 console.log(sortMinValue(nums3));
+
+console.log(sortMinValueRecursion(nums2));
