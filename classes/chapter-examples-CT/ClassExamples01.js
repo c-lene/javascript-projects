@@ -4,7 +4,6 @@ class Astronaut {
      this.name = name;
      this.age = age;
      this.mass = mass;
-     //this.color = color;                      // Added Color property 
    }
 }
 
