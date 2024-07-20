@@ -28,5 +28,10 @@ class AstronautI {
  let fox = new AstronautI('Fox', 7, 12);
  let hippo = new AstronautO('Hippo', 25, 1000);
  
- console.log(fox);
- console.log(hippo);
+ console.log(fox);            // Prints Object with the 'reportStats' method shows as an Anonymous function
+ console.log(hippo);          // ONLY prints the Object properties WITHOUT the method due to being outside of 'constructor'
+
+ 
+console.log(fox.reportStats());
+console.log(hippo.reportStats());
+
