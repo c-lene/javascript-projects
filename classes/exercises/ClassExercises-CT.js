@@ -63,7 +63,6 @@ console.log(pridePredjudice);
 console.log(shuttleBuilding);
 
 // Code exercises 4 & 5 here:
-
 // Exercises 4 - Discard manual due to older than 5 years
 console.log(shuttleBuilding.manualDiscard(2024));
 console.log(shuttleBuilding);
