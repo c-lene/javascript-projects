@@ -29,7 +29,6 @@ function init () {
             paragraph.innerHTML = "Mission is NOT aborted! Space shuttle en route!";
         }
     });
-        
 }
 
 window.addEventListener("load", init);
