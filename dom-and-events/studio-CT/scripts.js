@@ -10,57 +10,102 @@ function init () {
     const buttonDown = this.document.getElementById("down");
     const buttonRight = this.document.getElementById("right");
     const buttonLeft = this.document.getElementById("left");
-    const rocket = this.document.getElementById("rocket"), left = 0;
+    const rocket = this.document.getElementById("rocket");
     
     let flightStatus = this.document.getElementById("flightStatus")
-    let shuttleBackgroundColor = this.document.getElementById("shuttleBackground");
+    let shuttleBackground = this.document.getElementById("shuttleBackground");
     let shuttleHeightMiles = this.document.getElementById("spaceShuttleHeight");
+    
+    // Variables used in MY ORIGINAL method for directional buttons
     let currentPosition = 0;
     let currentShuttleHeight = 0;
+
+
+    // Variables used in Event Delegation method (Carrie's Method)
+    let rocketPosX = 0;
+    let rocketPosY = 0;
+    let altitude = 0;
+
+
     
-    rocket.style.left = "0";
-    rocket.style.position = "absolute";
+    // Commented out due to end up EDITING index.html <img>
+    // rocket.style.left = "0";
+    // rocket.style.position = "absolute";
     
 
     // When "Take off" button is clicked
-    buttonTakeOff.addEventListener("click", function(event) {
+    buttonTakeOff.addEventListener("click", function() {
         let response = window.confirm("Confirm that the shuttle is ready for takeoff.");
 
         if(response) {
             flightStatus.innerHTML = "Shuttle in flight.";
-            shuttleBackgroundColor.style.backgroundColor = "blue";
-            shuttleHeightMiles.innerHTML = "10,000";
+            shuttleBackground.style.backgroundColor = "blue";
+            shuttleHeightMiles.innerHTML = "10000";
+            
+            altitude = 10000;
+            rocketPosY += 10;
+            rocket.style.marginBottom = rocketPosY + "px";
         }
     });
     
 
     // When "Land" button is clicked
-    buttonLanding.addEventListener("click", function(event) {
+    buttonLanding.addEventListener("click", function() {
         window.alert("The shuttle is landing. Landing gear engaged.");
         
         flightStatus.innerHTML = "The shuttle has landed.";
-        shuttleBackgroundColor.style.backgroundColor = "green";
-        shuttleHeightMiles.innerHTML = "0";
+        
+        resetRocket();
 
+
+        // // Comment out if using resetRocket() 
+        // shuttleBackground.style.backgroundColor = "green";
+        // shuttleHeightMiles.innerHTML = "0";
+        
+        // // Comment out if using MY ORIGINAL code
+        // altitude = 0;
+        // rocketPosX = 0;
+        // rocketPosY = 0;
+        // rocket.style.marginLeft = rocketPosX + "px";
+        // rocket.style.marginBottom = rocketPosY + "px";
 
     });
 
 
     // When "Abort Mission" button is clicked
-    buttonMissionAbort.addEventListener("click", function(event) {
+    buttonMissionAbort.addEventListener("click", function() {
         let response = window.confirm("Confirm that you want to abort the mission.");
 
         if (response) {
             flightStatus.innerHTML = "Mission aborted.";
-            shuttleBackgroundColor.style.backgroundColor = "green";
-            shuttleHeightMiles.innerHTML = "0";
+
+            resetRocket();
+            
+            // // Comment out if using resetRocket() 
+            // shuttleBackground.style.backgroundColor = "green";
+            // shuttleHeightMiles.innerHTML = "0";
+            
+            // // Comment out if using MY ORIGINAL code
+            // altitude = 0;
+            // rocketPosX = 0;
+            // rocketPosY = 0;
+            // rocket.style.marginLeft = rocketPosX + "px";
+            // rocket.style.marginBottom = rocketPosY + "px";
+            
         }
     });
 
+    
 
+    // Comment out the following if Using Event Delagation for Directional Buttons
+    /*
     // When "Right" button is clicked
     buttonRight.addEventListener("click", function(event) {
         
+        if (rocket.style.left === "") {
+            rocket.style.left = 0;
+        }
+
         currentPosition = parseInt(rocket.style.left);
         rocket.style.left = (currentPosition + 10) + "px";
 
@@ -71,6 +116,10 @@ function init () {
     // When "Left" button is clicked
     buttonLeft.addEventListener("click",function(event) {
         
+        if (rocket.style.left === "") {
+            rocket.style.left = 0;
+        }
+
         currentPosition = parseInt(rocket.style.left);
 
         if (currentPosition > 0) {
@@ -101,7 +150,54 @@ function init () {
         } else {
             console.log("Unable to move DOWN, Try again!");
         }
+    }); */
+
+
+
+
+    // Using Event Delegation for Directional Buttons (Carrie's Method)
+    document.addEventListener("click", function(event) {
+        // console.log(event.target.id);
+        let bgWidth = parseInt(window.getComputedStyle(shuttleBackground).getPropertyValue("width"));
+        console.log(`Background Width: ${bgWidth}`);
+
+        if (event.target.id === "left" && rocketPosX > - (bgWidth / 2 - 40)) {
+            rocketPosX -= 10;
+            rocket.style.marginLeft = rocketPosX + "px";
+        }
+
+        if (event.target.id === "right" & rocketPosX < (bgWidth / 2 - 40)) {
+            rocketPosX += 10;
+            rocket.style.marginLeft = rocketPosX + "px";
+        }
+
+        if (event.target.id === "up" && altitude < 250000) {
+            rocketPosY += 10;
+            rocket.style.marginBottom = rocketPosY + "px";
+            altitude += 10000;
+            shuttleHeightMiles.innerHTML = altitude;
+        }
+
+        if (event.target.id === "down" && altitude > 0) {
+            rocketPosY -= 10;
+            rocket.style.marginBottom = rocketPosY + "px";
+            altitude -= 10000;
+            shuttleHeightMiles.innerHTML = altitude;
+        }
     });
+
+
+    // BONUS MISSION - OPTIONAL - Function RESETS Rocket properties
+    function resetRocket() {
+        shuttleBackground.style.backgroundColor = "green";
+        shuttleHeightMiles.innerHTML = "0";
+        altitude = 0;
+        rocketPosX = 0;
+        rocketPosY = 0;
+        rocket.style.marginLeft = rocketPosX + "px";
+        rocket.style.marginBottom = rocketPosY + "px";    
+    }
+
 };
 
 
