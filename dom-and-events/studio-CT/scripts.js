@@ -51,9 +51,6 @@ function init () {
     });
 
    
-
-
-
     buttonRight.addEventListener("click", function(event) {
         
         rocket.style.position = "absolute";
