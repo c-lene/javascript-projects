@@ -66,7 +66,6 @@ function init () {
         console.log(rocket.style.left);
         console.log(typeof rocket.style.left);
         
-        
         // rocket.setAttribute("right", rightPosition);
 
     });
