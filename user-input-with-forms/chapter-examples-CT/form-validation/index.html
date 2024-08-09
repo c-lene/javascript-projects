@@ -10,11 +10,66 @@
   </head>
 
   
+  <!-- ORIGINAL Exampler -->
+  <!-- <script>
+    window.addEventListener("load", function() {
+      let form = document.querySelector("form");
+      
+      form.addEventListener("submit", function(event) {
+        alert("submit clicked");
+      });
+    });
+  </script> -->
+
+
+  <!-- Add Validation - Get Reference to Inputs -->
+  <!-- <script>
+    window.addEventListener("load", function() {
+      let form = document.querySelector("form");
+      
+      form.addEventListener("submit", function(event) {
+        let usernameInput = document.querySelector("input[name=username]");
+        // Alert the Current Value found in the Username Input
+        alert("username: " + usernameInput.value);
+      });
+    });
+  </script> -->
+
+  <!-- Add Validation - Alert the Input Values When Submitted -->
+  <!-- <script>
+    window.addEventListener("load", function() {
+      let form = document.querySelector("form");
+      
+      form.addEventListener("submit", function(event) {
+        let usernameInput = document.querySelector("input[name=username]");
+        let teamName = document.querySelector("input[name=team]");
+
+        
+        // Uses a Conditional statement to verify ALL fields are filled
+        if (usernameInput.value === "" || teamName.value === "") {
+          alert("ALL fields are required!");
+        }
+      });
+    });
+  </script> -->
+
+  <!-- PREVENT Form Submission until ALL inputs have Valid values -->
   <script>
     window.addEventListener("load", function() {
       let form = document.querySelector("form");
+      
       form.addEventListener("submit", function(event) {
-        alert("submit clicked");
+        let usernameInput = document.querySelector("input[name=username]");
+        let teamName = document.querySelector("input[name=team]");
+
+        
+        // Uses a Conditional statement to verify ALL fields are filled
+        if (usernameInput.value === "" || teamName.value === "") {
+          alert("ALL fields are required!");
+
+          // STOPS the Form Submission
+          event.preventDefault();
+        }
       });
     });
   </script>
@@ -24,8 +79,8 @@
       method="POST" 
       action="https://handlers.education.launchcode.org/request-parrot">
       
-      <label>Username </label>
-      <input type="text" name="username">
+      <label>Username <input type="text" name="username"></label>
+      
 
       <label>Team Name <input type="text" name="team"></label>
       <button>Submit</button>

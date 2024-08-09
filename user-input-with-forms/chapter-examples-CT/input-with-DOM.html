@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Input Value with DOM</title>
+</head>
+
+<body>
+    <form>
+        <label>Language
+            <input type="text" name="language" id="language" value="JavaScript">
+        </label>
+    </form>
+
+    <button id="update">Update Input Value</button>
+
+    <script>
+        let button = document.getElementById("update");
+
+        // Add Event Handler for when button clicked
+        button.addEventListener("click", function() {
+            let input = document.getElementById("language");
+            console.log(input.value);
+
+            // Now Update the value in the Input
+            input.value = input.value + " rocks!";
+            console.log(input.value);
+        });
+    </script>
+</body>
+</html>
