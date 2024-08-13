@@ -32,8 +32,6 @@ window.addEventListener("load", function () {
                         </div>
                         <img class="avatar" src="${json[i].picture}">
                     </div>
-                    
-
                 `
                 } else {
                     container.innerHTML += `
@@ -48,7 +46,6 @@ window.addEventListener("load", function () {
                         </div>
                         <img class="avatar" src="${json[i].picture}">
                     </div>
-                    
                 `
                 }
             }
