@@ -14,8 +14,29 @@ window.addEventListener("load", function () {
             const container = document.getElementById("container");
             
             // Using a For Loop to iterated through each object in the array in json
+            let activeAstronauts = 0
+
             for (let i = 0; i < json.length; i++) {
-                container.innerHTML += `
+
+                if (json[i].active) {
+                    activeAstronauts += 1;
+                    container.innerHTML += `
+                    <div class="astronaut">
+                        <div class="bio">
+                            <h3>${json[i].firstName} ${json[i].lastName}</h3>
+                            <ul>
+                                <li>Hours in space: ${json[i].hoursInSpace}</li>
+                                <li class="active">Active: ${json[i].active}</li>
+                                <li>Skills: ${json[i].skills}</li>
+                            </ul>
+                        </div>
+                        <img class="avatar" src="${json[i].picture}">
+                    </div>
+                    
+
+                `
+                } else {
+                    container.innerHTML += `
                     <div class="astronaut">
                         <div class="bio">
                             <h3>${json[i].firstName} ${json[i].lastName}</h3>
@@ -27,8 +48,17 @@ window.addEventListener("load", function () {
                         </div>
                         <img class="avatar" src="${json[i].picture}">
                     </div>
+                    
                 `
+                }
             }
+
+            container.innerHTML += `
+            <p>
+                Total Number of Astronauts: ${json.length} <br>
+                <span class="active">Total ACTIVE Astronauts: ${activeAstronauts}</span>
+            </p>
+            `
         });
     });     
 });
