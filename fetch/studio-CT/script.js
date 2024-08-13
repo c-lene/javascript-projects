@@ -10,7 +10,10 @@ window.addEventListener("load", function () {
             // Checking that the JSON is pulled correctly
             console.log(json);                                              
             
+            // Implementing the json into the HTML
             const container = document.getElementById("container");
+            
+            // Using a For Loop to iterated through each object in the array in json
             for (let i = 0; i < json.length; i++) {
                 container.innerHTML += `
                     <div class="astronaut">
