@@ -5,7 +5,6 @@ window.addEventListener("load", function () {
 
         //Access the JSON in the response
         const jsonPromise = response.json();
-       
         jsonPromise.then(function(json) {
             
             // Checking that the JSON is pulled correctly
